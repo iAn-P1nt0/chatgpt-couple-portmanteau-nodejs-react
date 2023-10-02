@@ -3,7 +3,8 @@ import { useState } from "react";
 import styles from "./index.module.css";
 
 export default function Home() {
-  const [animalInput, setAnimalInput] = useState("");
+  const [celebrity1Input, setCelebrity1Input] = useState("");
+  const [celebrity2Input, setCelebrity2Input] = useState("");
   const [result, setResult] = useState();
 
   async function onSubmit(event) {
@@ -14,7 +15,7 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ animal: animalInput }),
+        body: JSON.stringify({ celebrity1: celebrity1Input,  celebrity2: celebrity2Input}),
       });
 
       const data = await response.json();
@@ -23,7 +24,8 @@ export default function Home() {
       }
 
       setResult(data.result);
-      setAnimalInput("");
+      setCelebrity1Input("");
+      setCelebrity2Input("");
     } catch(error) {
       // Consider implementing your own error handling logic here
       console.error(error);
@@ -34,22 +36,29 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>OpenAI Quickstart</title>
+        <title>ChatGPT Celebrity Couple Portmanteau</title>
         <link rel="icon" href="/dog.png" />
       </Head>
 
       <main className={styles.main}>
-        <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
+        <img src="/cclogo.png" className={styles.icon} />
+        <h3>Celebrity Couple Portmanteau!</h3>
         <form onSubmit={onSubmit}>
           <input
             type="text"
-            name="animal"
-            placeholder="Enter an animal"
-            value={animalInput}
-            onChange={(e) => setAnimalInput(e.target.value)}
+            name="celebrity1"
+            placeholder="Enter celebrity 1 first name"
+            value={celebrity1Input}
+            onChange={(e) => setCelebrity1Input(e.target.value)}
           />
-          <input type="submit" value="Generate names" />
+          <input
+            type="text"
+            name="celebrity2"
+            placeholder="Enter celebrity 2 first name"
+            value={celebrity2Input}
+            onChange={(e) => setCelebrity2Input(e.target.value)}
+          />
+          <input type="submit" value="Generate Portmanteau" />
         </form>
         <div className={styles.result}>{result}</div>
       </main>

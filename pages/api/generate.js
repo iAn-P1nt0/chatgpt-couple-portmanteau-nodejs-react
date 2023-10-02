@@ -15,11 +15,21 @@ export default async function (req, res) {
     return;
   }
 
-  const animal = req.body.animal || '';
-  if (animal.trim().length === 0) {
+  const celebrity1 = req.body.celebrity1 || '';
+  const celebrity2 = req.body.celebrity2 || '';
+  if (celebrity1.trim().length === 0 || celebrity2.trim().length === 0) {
     res.status(400).json({
       error: {
-        message: "Please enter a valid animal",
+        message: "Please enter a valid Celebrity 1 Name",
+      }
+    });
+    return;
+  }
+
+  if (celebrity1 === celebrity2) {
+    res.status(400).json({
+      error: {
+        message: "Both celebrities cannot be the same. Please enter different celebrity names",
       }
     });
     return;
@@ -28,7 +38,7 @@ export default async function (req, res) {
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: generatePrompt(animal),
+      prompt: generatePrompt(celebrity1, celebrity2),
       temperature: 0.6,
     });
     res.status(200).json({ result: completion.data.choices[0].text });
@@ -48,15 +58,24 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(animal) {
-  const capitalizedAnimal =
-    animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-  return `Suggest three names for an animal that is a superhero.
+function generatePrompt(celebrity1, celebrity2) {
+  const capitalizedCelebrity1 =
+    celebrity1[0].toUpperCase() + celebrity1.slice(1).toLowerCase();
+  const capitalizedCelebrity2 =
+    celebrity2[0].toUpperCase() + celebrity2.slice(1).toLowerCase();
+  return `Suggest portmanteau for ${capitalizedCelebrity1} and ${capitalizedCelebrity2}.
 
-Animal: Cat
-Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-Animal: Dog
-Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-Animal: ${capitalizedAnimal}
-Names:`;
+Celebrity1: Brad
+Celebrity2: Angelina
+Portmanteau: Brangelina
+Celebrity1: Ben
+Celebrity2: Jennifer
+Portmanteau: Bennifer
+Celebrity1: Virat
+Celebrity2: Anushka
+Portmanteau: Virushka
+Celebrity1: ${capitalizedCelebrity1}
+Celebrity2: ${capitalizedCelebrity2}
+Portmanteau:`;
 }
+
