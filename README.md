@@ -41,3 +41,5 @@ This is an example celebrity couple portmanteau generator react webapp inspired 
    ```
 
 You should now be able to access the app at [http://localhost:3000](http://localhost:3000)! For the full context behind the OpenAI example app which inspired this app, check out the [tutorial](https://platform.openai.com/docs/quickstart).
+
+<img width="493" alt="ccp-webapp" src="https://github.com/iAn-Pinto/chatgpt-celebrity-couple-portmanteau-nodejs-react/assets/7788571/1c413449-fe43-466d-a7f3-54ec988382f0">
