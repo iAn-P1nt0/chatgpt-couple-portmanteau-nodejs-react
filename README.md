@@ -11,7 +11,7 @@ This is an example celebrity couple portmanteau generator react webapp inspired 
 3. Navigate into the project directory
 
    ```bash
-   $ cd chatgpt-celebrity-couple-portmanteau-nodejs-react
+   $ cd chatgpt-couple-portmanteau-nodejs-react
    ```
 
 4. Install the requirements
