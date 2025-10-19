@@ -1,4 +1,4 @@
-# OpenAI API Quickstart git-repo inspired celebrity couple portmanteau react webapp
+# OpenAI API Quickstart git-repo inspired couple portmanteau react webapp
 
 This is an example celebrity couple portmanteau generator react webapp inspired by the OpenAI API [quickstart tutorial](https://platform.openai.com/docs/quickstart). It uses the [Next.js](https://nextjs.org/) framework with [React](https://reactjs.org/). Check out the tutorial or follow the instructions below to get set up.
 
