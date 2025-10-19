@@ -2,8 +2,6 @@
 
 This is an example celebrity couple portmanteau generator react webapp inspired by the OpenAI API [quickstart tutorial](https://platform.openai.com/docs/quickstart). It uses the [Next.js](https://nextjs.org/) framework with [React](https://reactjs.org/). Check out the tutorial or follow the instructions below to get set up.
 
-![cclogo](https://github.com/iAn-Pinto/chatgpt-celebrity-couple-portmanteau-nodejs-react/assets/7788571/1ee04975-0ec4-4a8d-bacc-2bb02c3c4e82)
-
 ## Setup
 
 1. If you don’t have Node.js installed, [install it from here](https://nodejs.org/en/) (Node.js version >= 14.6.0 required)
